@@ -30,14 +30,16 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
 
 body {
   font-family: var(--font-sans);
-  font-size: var(--step-0); /* 元のサイズに戻す */
+  font-size: var(--step-0);
+  /* 元のサイズに戻す */
   line-height: 1.7;
   background: var(--color-background);
   color: var(--color-ink);
@@ -48,14 +50,15 @@ body {
 /* Simple banded gradient background from INTRO to SOLUTION */
 .flow-band {
   background: linear-gradient(180deg,
-    rgba(255, 255, 255, 0.00) 0%,
-    rgba(255, 255, 255, 0.20) 40%,
-    rgba(255, 255, 255, 0.40) 100%);
-  padding: calc(var(--gutter) * 0.8) 0; /* prevent margin-collapsing and keep band breathing space */
+      rgba(255, 255, 255, 0.00) 0%,
+      rgba(255, 255, 255, 0.20) 40%,
+      rgba(255, 255, 255, 0.40) 100%);
+  padding: calc(var(--gutter) * 0.8) 0;
+  /* prevent margin-collapsing and keep band breathing space */
 }
 
 /* Restore original section padding inside the band */
-.flow-band > section {
+.flow-band>section {
   padding: calc(var(--gutter) * 1.7) 0;
 }
 
@@ -154,7 +157,7 @@ a:focus-visible {
 .header-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 0.6rem 0;
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 1.5rem;
@@ -163,13 +166,13 @@ a:focus-visible {
 
 .brand-mark {
   font-family: var(--font-serif);
-  font-size: var(--step-1);
+  font-size: var(--step-0);
   letter-spacing: 0.05em;
   line-height: 1.1;
 }
 
 .brand-mark span {
-  font-size: var(--step--1);
+  font-size: 0.75rem;
   font-family: var(--font-sans);
   letter-spacing: 0.2em;
 }
@@ -466,7 +469,7 @@ a:focus-visible {
   color: rgba(255, 255, 255, 0.55);
 }
 
-main > section {
+main>section {
   padding: calc(var(--gutter) * 1.7) 0;
   scroll-margin-top: clamp(5rem, 6vw, 6.5rem);
 }
@@ -479,16 +482,20 @@ main > section {
 }
 
 .intro .section-label {
-  margin-bottom: 2.5rem; /* ラベルとテキストの間隔を広げる */
+  margin-bottom: 2.5rem;
+  /* ラベルとテキストの間隔を広げる */
 }
 
 .intro p {
-  font-size: var(--step-2); /* 一回り小さく（1.35rem〜1.9rem） */
-  line-height: 1.8; /* 行間も少し狭く */
+  font-size: var(--step-2);
+  /* 一回り小さく（1.35rem〜1.9rem） */
+  line-height: 1.8;
+  /* 行間も少し狭く */
   margin: 0;
   color: var(--color-text);
   text-align: left;
-  max-width: 70ch; /* 読みやすさのための最大幅制限 */
+  max-width: 70ch;
+  /* 読みやすさのための最大幅制限 */
 }
 
 .section-label {
@@ -558,16 +565,21 @@ main > section {
 
 .section-body p {
   margin: 0;
-  font-size: var(--step-0); /* 基本サイズを維持 */
-  line-height: 1.75; /* 行間だけ少し広くして読みやすさを向上 */
+  font-size: var(--step-0);
+  /* 基本サイズを維持 */
+  line-height: 1.75;
+  /* 行間だけ少し広くして読みやすさを向上 */
 }
 
 .section-intro {
-  font-size: var(--step-1); /* リード文を大きく */
+  font-size: var(--step-1);
+  /* リード文を大きく */
   max-width: 65ch;
   color: var(--color-muted);
-  line-height: 1.8; /* 行間も広く */
-  margin-top: 1rem; /* 上マージンを追加 */
+  line-height: 1.8;
+  /* 行間も広く */
+  margin-top: 1rem;
+  /* 上マージンを追加 */
 }
 
 /* フィーチャーリードカードのテキストを大きく */
@@ -832,7 +844,9 @@ main > section {
   letter-spacing: 0.05em;
 }
 
-.problem-details summary::marker { display: none; }
+.problem-details summary::marker {
+  display: none;
+}
 
 .problem-details summary::after {
   content: "＋";
@@ -941,7 +955,9 @@ main > section {
   letter-spacing: 0.05em;
 }
 
-.solution-details summary::marker { display: none; }
+.solution-details summary::marker {
+  display: none;
+}
 
 .solution-details summary::after {
   content: "＋";
@@ -958,6 +974,7 @@ main > section {
   display: grid;
   gap: 1.2rem;
 }
+
 .problem-explainer {
   max-width: min(70ch, var(--max-width));
   margin: calc(var(--gutter) * 3) auto 0;
@@ -1209,7 +1226,7 @@ main > section {
   pointer-events: none;
 }
 
-.research > * {
+.research>* {
   position: relative;
   z-index: 1;
 }
@@ -1229,18 +1246,16 @@ main > section {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(244, 241, 235, 0.95) 0%,
-    rgba(244, 241, 235, 0.7) 30%,
-    rgba(244, 241, 235, 0.6) 50%,
-    rgba(244, 241, 235, 0.7) 70%,
-    rgba(244, 241, 235, 0.95) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(244, 241, 235, 0.95) 0%,
+      rgba(244, 241, 235, 0.7) 30%,
+      rgba(244, 241, 235, 0.6) 50%,
+      rgba(244, 241, 235, 0.7) 70%,
+      rgba(244, 241, 235, 0.95) 100%);
   z-index: 1;
 }
 
-.timeline > * {
+.timeline>* {
   position: relative;
   z-index: 2;
 }
@@ -1298,10 +1313,13 @@ main > section {
 .message-card blockquote {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: var(--step-2); /* より大きく */
+  font-size: var(--step-2);
+  /* より大きく */
   color: var(--color-ink);
-  line-height: 1.6; /* 行間を調整 */
-  margin-bottom: 1.5rem; /* 下マージンを追加 */
+  line-height: 1.6;
+  /* 行間を調整 */
+  margin-bottom: 1.5rem;
+  /* 下マージンを追加 */
 }
 
 /* Message details (アコーディオン) */
@@ -1651,7 +1669,7 @@ main > section {
   pointer-events: none;
 }
 
-.eligibility > * {
+.eligibility>* {
   position: relative;
   z-index: 1;
 }
@@ -2145,6 +2163,7 @@ main > section {
     opacity: 0;
     transform: translateY(-8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -2215,7 +2234,7 @@ main > section {
   display: contents;
 }
 
-.cta-message-wrapper > h2 {
+.cta-message-wrapper>h2 {
   grid-column: 2;
   grid-row: 1;
 }
@@ -2230,7 +2249,7 @@ main > section {
   grid-row: 3;
 }
 
-.cta-card > .cta-message-wrapper > h2 {
+.cta-card>.cta-message-wrapper>h2 {
   font-family: var(--font-serif);
   font-size: var(--step-3);
   line-height: 1.3;
@@ -2306,7 +2325,7 @@ main > section {
   padding-inline: var(--gutter);
 }
 
-.footer-inner > div {
+.footer-inner>div {
   display: grid;
   gap: 1.2rem;
 }
@@ -2320,14 +2339,14 @@ main > section {
   font-weight: 600;
 }
 
-.footer-inner > div > p:first-of-type {
+.footer-inner>div>p:first-of-type {
   font-size: var(--step--1);
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.65);
   margin: 0;
 }
 
-.footer-inner > div > p:last-of-type {
+.footer-inner>div>p:last-of-type {
   font-size: var(--step--1);
   color: rgba(255, 255, 255, 0.45);
   margin: 0;
@@ -2360,14 +2379,14 @@ main > section {
   transform: translateX(4px);
 }
 
-.footer-inner > div > p:last-of-type a {
+.footer-inner>div>p:last-of-type a {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: underline;
   text-decoration-color: rgba(255, 255, 255, 0.3);
   text-underline-offset: 2px;
 }
 
-.footer-inner > div > p:last-of-type a:hover {
+.footer-inner>div>p:last-of-type a:hover {
   color: var(--color-accent);
   text-decoration-color: var(--color-accent);
 }
@@ -2445,7 +2464,7 @@ main > section {
     height: 120px;
   }
 
-  .cta-message-wrapper > h2 {
+  .cta-message-wrapper>h2 {
     padding-left: 0;
     text-align: center;
   }
@@ -2474,52 +2493,43 @@ main > section {
   }
 }
 
-/* Mobile Sticky CTA */
-.mobile-sticky-cta {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(10, 21, 38, 0.08);
-  z-index: 100;
-  display: none;
-  box-shadow: 0 -4px 20px rgba(10, 21, 38, 0.08);
-}
-
-.mobile-sticky-cta .primary-cta {
-  width: 100%;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(216, 125, 44, 0.3);
-}
+/* Mobile Sticky CTA Deleted */
 
 @media (max-width: 600px) {
   body {
-    padding-bottom: 90px;
-  }
-
-  .mobile-sticky-cta {
-    display: block;
-    animation: slideUp 0.5s ease;
-  }
-
-  @keyframes slideUp {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
+    padding-bottom: 0px;
   }
 
   .hero {
+    min-height: auto;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
     padding-inline: 1.5rem;
   }
 
   .hero h1 {
-    font-size: clamp(2rem, 6vw, 3rem);
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-sub {
+    font-size: var(--step-0);
+    line-height: 1.6;
+  }
+
+  .intro {
+    padding: 3rem 1.5rem;
+  }
+
+  .intro p {
+    font-size: var(--step-0);
+    line-height: 1.75;
+    text-align: left;
   }
 
   .hero-actions {
     width: 100%;
+    margin-top: 1.5rem;
   }
 
   .primary-cta {
@@ -2604,12 +2614,12 @@ main > section {
     display: contents;
   }
 
-  .trainer-body > h3,
-  .trainer-body > .role {
+  .trainer-body>h3,
+  .trainer-body>.role {
     grid-column: 2;
   }
 
-  .trainer-body > p:not(.role) {
+  .trainer-body>p:not(.role) {
     grid-column: 1 / -1;
     margin-top: 0.8rem;
   }
@@ -2681,7 +2691,7 @@ main > section {
     display: contents;
   }
 
-  .cta-message-wrapper > h2 {
+  .cta-message-wrapper>h2 {
     order: 1;
   }
 
@@ -2705,6 +2715,7 @@ main > section {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
