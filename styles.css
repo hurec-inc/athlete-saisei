@@ -269,20 +269,11 @@ a:focus-visible {
     z-index: 21;
   }
 
-  body:not(.nav-enhanced) .menu-toggle {
-    display: none;
-  }
-
-  body.nav-enhanced .line-cta {
+  .line-cta {
     display: none;
   }
 
   .site-nav {
-    grid-column: 1 / -1;
-    justify-self: stretch;
-  }
-
-  body.nav-enhanced .site-nav {
     position: fixed;
     inset: 0;
     display: flex;
@@ -292,7 +283,7 @@ a:focus-visible {
     padding: 6.2rem 1.8rem 3rem;
     background: rgba(10, 21, 38, 0.96);
     backdrop-filter: blur(18px);
-    min-height: 100dvh;
+    height: 100dvh;
     overflow-y: auto;
     z-index: 20;
     opacity: 0;
@@ -302,14 +293,14 @@ a:focus-visible {
     visibility: hidden;
   }
 
-  body.nav-enhanced .site-nav.is-open {
+  .site-nav.is-open {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
     visibility: visible;
   }
 
-  body.nav-enhanced .site-nav ul {
+  .site-nav ul {
     flex-direction: column;
     align-items: center;
     gap: 1.9rem;
@@ -318,22 +309,22 @@ a:focus-visible {
     width: min(420px, 100%);
   }
 
-  body.nav-enhanced .site-nav li {
+  .site-nav li {
     width: 100%;
     text-align: center;
   }
 
-  body.nav-enhanced .site-nav a {
+  .site-nav a {
     display: inline-block;
     text-align: center;
   }
 
-  body.nav-enhanced .nav-cta {
+  .nav-cta {
     display: block;
     width: 100%;
   }
 
-  body.nav-enhanced .nav-cta a {
+  .nav-cta a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -347,8 +338,8 @@ a:focus-visible {
     transition: background var(--transition-base), transform var(--transition-base);
   }
 
-  body.nav-enhanced .nav-cta a:hover,
-  body.nav-enhanced .nav-cta a:focus-visible {
+  .nav-cta a:hover,
+  .nav-cta a:focus-visible {
     color: #fff;
     background: var(--color-accent-dark);
     transform: translateY(-2px);
