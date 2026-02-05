@@ -1,28 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('js-enabled');
+
   const animatedElements = document.querySelectorAll('[data-animate]');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (reduceMotion) {
     animatedElements.forEach((el) => el.classList.add('is-visible'));
-    return;
+    // continue to allow menu interactions even if reduce motion is on, but return early for scroll animations
+  } else {
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -5% 0px',
+      }
+    );
+
+    animatedElements.forEach((el) => observer.observe(el));
   }
-
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.15,
-      rootMargin: '0px 0px -10% 0px',
-    }
-  );
-
-  animatedElements.forEach((el) => observer.observe(el));
 
   const menuToggle = document.querySelector('.menu-toggle');
   const siteNav = document.querySelector('.site-nav');
