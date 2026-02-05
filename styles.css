@@ -266,7 +266,8 @@ a:focus-visible {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    z-index: 21;
+    z-index: 9999;
+    /* Ensure it's above everything */
   }
 
   .line-cta {
@@ -2383,12 +2384,19 @@ main>section {
 }
 
 [data-animate] {
-  opacity: 0;
-  transform: translateY(40px);
+  /* Default state: visible. Only hide if JS is confirmed working (see below) */
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-[data-animate].is-visible {
+/* Only hide if JS is enabled, so we don't block content if scripts fail */
+.js-enabled [data-animate] {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.js-enabled [data-animate].is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -2484,11 +2492,45 @@ main>section {
   }
 }
 
-/* Mobile Sticky CTA Deleted */
+/* Mobile Sticky CTA */
+.mobile-sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(10, 21, 38, 0.08);
+  z-index: 100;
+  display: none;
+  box-shadow: 0 -4px 20px rgba(10, 21, 38, 0.08);
+}
+
+.mobile-sticky-cta .primary-cta {
+  width: 100%;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(216, 125, 44, 0.3);
+}
 
 @media (max-width: 600px) {
   body {
-    padding-bottom: 0px;
+    padding-bottom: 90px;
+  }
+
+  .mobile-sticky-cta {
+    display: block;
+    animation: slideUp 0.5s ease;
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
   }
 
   .hero {
