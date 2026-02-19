@@ -106,4 +106,34 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // simplified: no stage control needed (flow-band covers intro -> solution)
+
+  // Google Analytics Event Tracking
+  const lineButtons = document.querySelectorAll('a[href*="line.me"]');
+
+  lineButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      let location = 'unknown';
+
+      // Determine button location based on parent structure
+      if (button.closest('.site-header')) {
+        location = 'header';
+      } else if (button.closest('.hero')) {
+        location = 'hero';
+      } else if (button.closest('.eligibility') || button.closest('.eligibility-cta-global')) {
+        location = 'eligibility';
+      } else if (button.closest('.mobile-sticky-cta')) {
+        location = 'sticky_footer';
+      } else if (button.closest('.final-cta')) {
+        location = 'final_ctl';
+      } 
+
+      // Send event to GA4
+      if (typeof gtag === 'function') {
+        gtag('event', 'line_click', {
+          button_location: location,
+          button_text: button.textContent.trim(),
+        });
+      }
+    });
+  });
 });
