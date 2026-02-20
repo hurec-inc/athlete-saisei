@@ -124,8 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (button.closest('.mobile-sticky-cta')) {
         location = 'sticky_footer';
       } else if (button.closest('.final-cta')) {
-        location = 'final_ctl';
-      } 
+        location = 'final_cta';
+      }
 
       // Send event to GA4
       if (typeof gtag === 'function') {
