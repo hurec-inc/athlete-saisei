@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://athlete-saisei.vercel.app/sitemap.xml
